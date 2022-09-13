@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :spells
   resources :users
   
   get "/get-current-user" => "sessions#get_current_user"
