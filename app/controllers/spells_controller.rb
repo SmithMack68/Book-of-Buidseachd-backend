@@ -46,6 +46,6 @@ class SpellsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def spell_params
-      params.require(:spell).permit(:name, :short_description, :image_url, :requirements, :incantation)
+      params.require(:spell).permit(:name, :short_description, :image, :requirements, :incantation)
     end
 end

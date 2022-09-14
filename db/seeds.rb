@@ -8,7 +8,7 @@
 # create_table "spells", force: :cascade do |t|
 #     t.string "name"
 #     t.text "short_description"
-#     t.string "image_url"
+#     t.string "image"
 #     t.text "requirements"
 #     t.text "incantation"
 #     t.datetime "created_at", null: false
@@ -20,21 +20,21 @@ Spell.create([
     {
         name: "Doubling",
         short_description: "Creates a duplicate of any !inanimate! object",
-        image_url: "",
+        image: "./images/SP/Double.jpg",
         requirements: "Wand, Elf Magic, Paladin Magic or Druid Magic",
         incantation: "Duplico"
     },
     {
         name: "Inflammation",
         short_description: "Causes a red rash and swelling",
-        image_url: "",
+        image: "./images/SP/Warts.jpg",
         requirements: "Equal parts Witch's Wart powder and Spider Legs ground together, must put on target.",
         incantation: "Inflammatio"
     },
     {
         name: "Amplify",
         short_description: "Makes your voice louder or hearing better",
-        image_url: "",
+        image: "./images/SP/Amplify.jpg",
         requirements: "Wand, Elf Magic, Paladin Magic or Druid Magic point to desired result",
         incantation: "Amplifico"
     }
