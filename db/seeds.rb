@@ -39,3 +39,6 @@ Spell.create([
         incantation: "Amplifico"
     }
 ])
+
+
+
