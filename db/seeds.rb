@@ -15,12 +15,11 @@
 #     t.datetime "updated_at", null: false
 #   end
 
-
 Spell.create([
     {
         name: "Doubling",
         short_description: "Creates a duplicate of any !inanimate! object",
-        image: "./images/SP/Double.jpg",
+        image: "https://res.cloudinary.com/dcpwwcueu/image/upload/v1663296501/Spells/spell-casting-magical-elements-gathered-together-ready-to-cast-magic-66830138_rgqabs.jpg",
         requirements: "Wand, Elf Magic, Paladin Magic or Druid Magic",
         incantation: "Duplico"
     },
