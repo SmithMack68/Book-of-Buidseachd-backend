@@ -14,26 +14,27 @@
 #     t.datetime "created_at", null: false
 #     t.datetime "updated_at", null: false
 #   end
+User.create(username: "Kit", password: "kat")
 
 Spell.create([
     {
         name: "Doubling",
-        short_description: "Creates a duplicate of any !inanimate! object",
-        image: "https://res.cloudinary.com/dcpwwcueu/image/upload/v1663296501/Spells/spell-casting-magical-elements-gathered-together-ready-to-cast-magic-66830138_rgqabs.jpg",
+        short_description: "Creates a duplicate of any *inanimate* object",
+        image: "https://res.cloudinary.com/dcpwwcueu/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1663714630/Spells/shutterstock_335792258_nhgrky.jpg",
         requirements: "Wand, Elf Magic, Paladin Magic or Druid Magic",
         incantation: "Duplico"
     },
     {
         name: "Inflammation",
         short_description: "Causes a red rash and swelling",
-        image: "./images/SP/Warts.jpg",
+        image: "https://res.cloudinary.com/dcpwwcueu/image/upload/v1663295900/Spells/shutterstock_1645258102_jjrix1.jpg",
         requirements: "Equal parts Witch's Wart powder and Spider Legs ground together, must put on target.",
         incantation: "Inflammatio"
     },
     {
         name: "Amplify",
         short_description: "Makes your voice louder or hearing better",
-        image: "./images/SP/Amplify.jpg",
+        image: "https://res.cloudinary.com/dcpwwcueu/image/upload/v1663294890/Spells/Amplify_tyuwtz.jpg",
         requirements: "Wand, Elf Magic, Paladin Magic or Druid Magic point to desired result",
         incantation: "Amplifico"
     }
