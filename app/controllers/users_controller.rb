@@ -12,19 +12,27 @@ class UsersController < ApplicationController
   # GET /users/1
   def show
     render json: @user
+    #if current_user
+    #render json: current_user, status: : ok
+    #else
+    #render json: { error: "No current user logged in"}, status: :unauthorized
+    #end
   end
 
   # POST /users
-  def create
-    @user = User.new(user_params)
-
-    if @user.save
-      @token = encode_token({ user_id: @user.id})
-      render json:{ user: @user, token: @token }, status: :created
-    else
-      render json: @user.errors, status: :unprocessable_entity
-    end
+  def create 
+    @user = User.create!(user_params)
+    login_user #creates a new session session[:user_id] = @user_id
+    render json: @user, status: :ok
   end
+
+  def get_current_user
+    if logged_in?
+    render json: current_user, status: :ok
+    else
+    render json: { errors: ["No user is currently logged in"]}, status: :unauthorized
+    end
+  end  
 
   # PATCH/PUT /users/1
   def update
@@ -47,6 +55,31 @@ class UsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_params
-      params.require(:user).permit(:username, :creature_type, :age, :password)
+      params.permit(:username, :creature_type, :age, :password)
+      # params.require(:user).permit(:username, :creature_type, :age, :password) for JWT
     end
 end
+
+
+ # JWT
+  # def create
+  #   @user = User.new(user_params)
+  #   if @user.save
+  #     @token = encode_token({ user_id: @user.id})
+  #     render json:{ user: @user, token: @token }, status: :created
+  #   else
+  #     render json: @user.errors, status: :unprocessable_entity
+  #   end
+  # end
+
+  #def create ENOCH
+  #   @user = User.new(user_params)
+  #   if @user.save
+  #     login_user #creates a new session
+  #     render json: @user
+  #   else
+  #     render json: { errors: @user.errors.full_messages }, status: :unprocessable_entity
+  #   end
+  # end
+
+  
