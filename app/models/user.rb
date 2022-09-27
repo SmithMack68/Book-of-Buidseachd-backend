@@ -1,6 +1,6 @@
 class User < ApplicationRecord
-    validates :username, presence: true, uniqueness: true
     has_secure_password #password setter/encrypter 
+    validates :username, presence: true, uniqueness: true
 
     has_many :casts
     has_many :spells, through: :casts

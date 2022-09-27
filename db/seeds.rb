@@ -20,7 +20,7 @@ Spell.create([
     {
         name: "Doubling",
         short_description: "Creates a duplicate of any *inanimate* object",
-        image: "https://res.cloudinary.com/dcpwwcueu/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1663714630/Spells/shutterstock_335792258_nhgrky.jpg",
+        image:" https://res.cloudinary.com/dcpwwcueu/image/upload/v1663714630/Spells/shutterstock_335792258_nhgrky.jpg",
         requirements: "Wand, Elf Magic, Paladin Magic or Druid Magic",
         incantation: "Duplico"
     },
