@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
-  skip_before_action :authorized, only: [:create]
-  before_action :set_user, only: [:show, :update, :destroy ]
-
+  skip_before_action :authenticate_user, only: [:create]
+  
   # GET /users
   def index
     @users = User.all
@@ -11,7 +10,7 @@ class UsersController < ApplicationController
   # GET /users/1
   def show
     if current_user
-        render json: current_user, status: : ok
+        render json: current_user, status: :ok
     else
         render json: { error: "No current user logged in"}, status: :unauthorized
     end
@@ -24,13 +23,13 @@ class UsersController < ApplicationController
     render json: @user, status: :created
   end
 
-  def get_current_user
-    if logged_in?
-    render json: current_user, status: :ok
-    else
-    render json: { errors: ["No user is currently logged in"]}, status: :unauthorized
-    end
-  end  
+  # def get_current_user
+  #   if logged_in?
+  #   render json: current_user, status: :ok
+  #   else
+  #   render json: { errors: ["No user is currently logged in"]}, status: :unauthorized
+  #   end
+  # end  
 
   # PATCH/PUT /users/1
   def update

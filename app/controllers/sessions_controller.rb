@@ -1,12 +1,12 @@
 class SessionsController < ApplicationController
-  skip_before_action :authorized
+  skip_before_action :authenticate_user, only: [:create]
 
   #Sessions-
   # POST '/login' - create a new session (not create a USER)
   def create
     @user = User.find_by_username(params[:username])
-    # if @user && @user.authenticate(params[:password])
-    if @user&.authenticate(params[:password])
+    # if @user && @user.authenticate(params[:password]) same as the shorthand below
+    if @user&.authenticate(params[:password]) 
       # login_user
       session[:user_id] = @user.id
       render json: @user, status: :ok
@@ -18,10 +18,19 @@ class SessionsController < ApplicationController
   #DELETE '/logout' - destroy the session
   def destroy
    session.delete(:user_id)
-   head :no_content
+  #  head :no_content can use or not
   end
 
 end
+
+
+
+
+
+
+
+
+
 
  #JWT
   # def get_current_user
