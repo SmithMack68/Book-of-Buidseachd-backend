@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :casts, only: [:create]
   resources :spells, only: [:index, :show]
-  resources :users #, only: [:show, :create] #create is sign up
+  resources :users, only: [:index, :show, :create] #create is sign up
 
   
   

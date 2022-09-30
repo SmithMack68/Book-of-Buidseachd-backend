@@ -1,5 +1,5 @@
 class SpellsController < ApplicationController
- skip_before_action :authenticate_user, only: [:show]
+ skip_before_action :authenticate_user
 
   # GET /spells
   def index
