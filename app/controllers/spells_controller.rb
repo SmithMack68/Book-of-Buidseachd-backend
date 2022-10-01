@@ -10,30 +10,25 @@ class SpellsController < ApplicationController
   # GET /spells/1
   def show
     @spell = Spell.find(params[:id])
-    render json: @spell, status: :ok
+    render json: @spell, include: :reviews, status: :ok
   end
 
   # POST /spells
   def create
-    @spell = Spell.new(spell_params)
-    if @spell.save
-      render json: @spell, status: :created, location: @spell
-    else
-      render json: @spell.errors, status: :unprocessable_entity
-    end
+    @spell = Spell.create!(spell_params)
+    render json: @spell, status: :created
   end
 
   # PATCH/PUT /spells/1
   def update
-    if @spell.update(spell_params)
-      render json: @spell
-    else
-      render json: @spell.errors, status: :unprocessable_entity
-    end
+    @spell = Spell.find(params[:id])
+    @spell.update!(spell_params)
+    render json: @spell, status: :accepted
   end
 
   # DELETE /spells/1
   def destroy
+    @spell = Spell.find(params[:id])
     @spell.destroy
   end
 

@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   skip_before_action :authenticate_user, only: [:create]
-  
+  # before_action :is_authorized?, only: [:create, :update, :destroy]
+
   # GET /users
   def index
     @users = User.all
@@ -23,14 +24,7 @@ class UsersController < ApplicationController
     render json: @user, status: :created
   end
 
-  # def get_current_user
-  #   if logged_in?
-  #   render json: current_user, status: :ok
-  #   else
-  #   render json: { errors: ["No user is currently logged in"]}, status: :unauthorized
-  #   end
-  # end  
-
+ 
   # PATCH/PUT /users/1
   def update
     if @user.update(user_params)
@@ -46,15 +40,14 @@ class UsersController < ApplicationController
   end
 
   private
-    def set_user
-      @user = User.find(params[:id])
-    end
-
     # Only allow a list of trusted parameters through.
     def user_params
       params.permit(:username, :creature_type, :age, :password)
-     
     end
+
+    # def set_user
+    #   @user = User.find(params[:id])
+    # end
 end
 
 
@@ -69,6 +62,13 @@ end
   #   end
   # end
    # params.require(:user).permit(:username, :creature_type, :age, :password) for JWT
+ # def get_current_user
+  #   if logged_in?
+  #   render json: current_user, status: :ok
+  #   else
+  #   render json: { errors: ["No user is currently logged in"]}, status: :unauthorized
+  #   end
+  # end  
 
   #def create ENOCH
   #   @user = User.new(user_params)
