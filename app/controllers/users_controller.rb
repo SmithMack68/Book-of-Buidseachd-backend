@@ -10,11 +10,13 @@ class UsersController < ApplicationController
 
   # GET /users/1
   def show
-    if current_user
-        render json: current_user, status: :ok
-    else
-        render json: { error: "No current user logged in"}, status: :unauthorized
-    end
+    @user = User.find(params[:id])
+    render json: @user, status: :ok
+    # if current_user
+    #     render json: current_user, status: :ok
+    # else
+    #     render json: { error: "No current user logged in"}, status: :unauthorized
+    # end
   end
 
   # POST /users
@@ -26,18 +28,18 @@ class UsersController < ApplicationController
 
  
   # PATCH/PUT /users/1
-  def update
-    if @user.update(user_params)
-      render json: @user
-    else
-      render json: @user.errors, status: :unprocessable_entity
-    end
-  end
+  # def update
+  #   if @user.update(user_params)
+  #     render json: @user
+  #   else
+  #     render json: @user.errors, status: :unprocessable_entity
+  #   end
+  # end
 
   # DELETE /users/1
-  def destroy
-    @user.destroy
-  end
+  # def destroy
+  #   @user.destroy
+  # end
 
   private
     # Only allow a list of trusted parameters through.
