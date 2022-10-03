@@ -1,4 +1,4 @@
 class Review < ApplicationRecord
-  belongs_to :spell
   belongs_to :user
+  belongs_to :spell
 end

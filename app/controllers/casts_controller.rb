@@ -1,8 +1,8 @@
 class CastsController < ApplicationController
     
     def create 
-        cast = Cast.create(cast_params)
-        render json: cast, status: :created
+        @cast = Cast.create!(cast_params)
+        render json: @cast, status: :created
     end
 
 

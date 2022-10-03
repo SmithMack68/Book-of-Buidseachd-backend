@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
   skip_before_action :authenticate_user, only: [:create]
-  # before_action :is_authorized?, only: [:create, :update, :destroy]
+  # before_action :set_user, only: [:show]
 
-  # GET /users
+  # # GET /users
   def index
     @users = User.all
     render json: @users
@@ -12,17 +12,12 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     render json: @user, status: :ok
-    # if current_user
-    #     render json: current_user, status: :ok
-    # else
-    #     render json: { error: "No current user logged in"}, status: :unauthorized
-    # end
   end
 
   # POST /users
   def create 
     @user = User.create!(user_params)
-    login_user #creates a new session session[:user_id] = @user_id
+    session[:user_id] = @user_id # login_user from appCont #creates a new session session[:user_id] = @user_id
     render json: @user, status: :created
   end
 
@@ -47,9 +42,9 @@ class UsersController < ApplicationController
       params.permit(:username, :creature_type, :age, :password)
     end
 
-    # def set_user
-    #   @user = User.find(params[:id])
-    # end
+    def set_user
+      @user = User.find(params[:id])
+    end
 end
 
 

@@ -17,7 +17,7 @@ class ReviewsController < ApplicationController
   # POST /reviews
   def create
     @review = Review.create!(review_params)
-    render json: @review, status: :created
+    render json: @review, include: [:user], status: :created
   end
 
   # PATCH/PUT /reviews/1
