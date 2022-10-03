@@ -1,10 +1,9 @@
 class ReviewSerializer < ActiveModel::Serializer
-  attributes :comment, :user, :spell
-  # has_one :spell
-  has_one :user
+  attributes :id, :comment, :username
 
-  # def review
-  #   {}
-  # end
+  belongs_to :user
 
+  def username
+    object.user.username if object.user
+  end
 end

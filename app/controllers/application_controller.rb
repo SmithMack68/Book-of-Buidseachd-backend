@@ -6,16 +6,16 @@ class ApplicationController < ActionController::API
     rescue_from ActiveRecord::RecordNotFound, with: :render_not_found
 
   
-
     def login_user
         session[:user_id] = @user_id
     end
+    
+    private
 
     def current_user
      @current_user ||= User.find_by_id(session[:user_id])#find or find_by_id
     end
 
-    private
     def authenticate_user
         render json: { errors: {User: 'Please login'}}, status: :unauthorized unless current_user
     end
