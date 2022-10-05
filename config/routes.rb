@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   # Sessions custom routes
   post '/signup', to: 'users#create'
   get '/current-user', to: 'users#get_current_user'
+
+  get "/me", to: 'users#show'
+
   post '/login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
 
