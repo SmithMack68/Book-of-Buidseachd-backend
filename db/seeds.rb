@@ -16,6 +16,8 @@
 #   end
 User.create(username: "Kit", password: "kat")
 
+Review.create(username: "Kit", comment: "This spell singed my eyebrows, but it really works. Just be super careful!!", spell_id:1, user_id:1)
+
 Spell.create([
     {
         name: "Doubling",

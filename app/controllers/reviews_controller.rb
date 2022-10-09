@@ -20,6 +20,13 @@ class ReviewsController < ApplicationController
     render json: @review, include: [:user], status: :created
   end
 
+  # def add_review_to_spell
+  #   @spell = Spell.find_by_id(params[:spell_id])
+  #   @review = @spell.reviews.build(params)
+  #   @review.save
+  #   render json: @review
+  # end
+
   # PATCH/PUT /reviews/1
   def update
     @review = Review.find(params[:id])
@@ -37,7 +44,7 @@ class ReviewsController < ApplicationController
   private
     # Only allow a list of trusted parameters through.
     def review_params
-      params.permit(:comment, :spell_id, :user_id)
+      params.permit(:username, :comment, :spell_id, :user_id)
     end
 
     def is_owner? 
