@@ -16,7 +16,7 @@
 #   end
 User.create(username: "Kit", password: "kat")
 
-Review.create(username: "Kit", comment: "This spell singed my eyebrows, but it really works. Just be super careful!!", spell_id:1, user_id:1)
+
 
 Spell.create([
     {
@@ -37,10 +37,33 @@ Spell.create([
         name: "Amplify",
         short_description: "Makes your voice louder or hearing better",
         image: "https://res.cloudinary.com/dcpwwcueu/image/upload/v1663294890/Spells/Amplify_tyuwtz.jpg",
-        requirements: "Wand, Elf Magic, Paladin Magic or Druid Magic point to desired result",
+        requirements: "Wand, Elf Magic, Paladin Magic or Druid Magic Point to either your ears or voice box",
         incantation: "Amplifico"
+    }, 
+    {
+        name: "True Love",
+        short_description: "Calls your true love to you. **Only works if you have a true love and they may not be human**",
+        image:"https://res.cloudinary.com/dcpwwcueu/image/upload/v1663294892/Spells/Love_qauhg4.jpg",
+        requirements: "Needs to be very very quiet and candlelight ONLY to get this spell to work. Wand, Elf Magic, Paladin Magic or Druid Magic",
+        incantation: "Amorem Verum"
+    },
+    {
+        name: "Torture",
+        short_description: "Causes immense pain                             ",
+        image: "https://res.cloudinary.com/dcpwwcueu/image/upload/v1663295916/Spells/shutterstock_2030272709_ooartc.jpg",
+        requirements: "You must be at least 75 years old for this spell and have to be a Witch, Wizard or Cerridwen. NO ORCS!!!!",
+        incantation: "Cruciatus"
+    },
+    {
+        name: "Second Sight",
+        short_description: "Allows you to have the sight for 15 minutes",
+        image: "https://res.cloudinary.com/dcpwwcueu/image/upload/v1663295919/Spells/shutterstock_2017196705_oq17sz.jpg",
+        requirements: "Can only be cast on a Blood Moon. Wand, Elf Magic, Paladin Magic or Druid Magic.",
+        incantation: "Prognosticatus"
     }
 ])
 
 
+Review.create(username: "Kit", comment: "This spell singed my eyebrows, but it really works. Just be super careful!!", spell_id:1, user_id:1)
+Review.create(username: "Kit", comment: "Particularly helpful for calling little lost lambs home", spell_id:3, user_id:1)
 

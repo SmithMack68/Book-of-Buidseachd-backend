@@ -1,5 +1,9 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :username, :id
-  # has_many :casts
-  has_many :spells
+  attributes :username
+ 
+  has_many :spells, serializer: UserSpellSerializer
+  
+  has_many :reviews, serializer: ReviewSerializer
+  
+ 
 end
