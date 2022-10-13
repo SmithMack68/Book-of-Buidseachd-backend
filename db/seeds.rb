@@ -28,16 +28,16 @@ Spell.create([
     },
     {
         name: "Inflammation",
-        short_description: "Causes a red rash and swelling",
+        short_description: "Causes a red rash and swelling, followed by hives and uncontrollable itching",
         image: "https://res.cloudinary.com/dcpwwcueu/image/upload/v1663295900/Spells/shutterstock_1645258102_jjrix1.jpg",
         requirements: "Equal parts Witch's Wart powder and Spider Legs ground together, must put on target.",
         incantation: "Inflammatio"
     },
     {
         name: "Amplify",
-        short_description: "Makes your voice louder or hearing better",
+        short_description: "Makes your voice louder or hearing better. Point to either your ears or voice box",
         image: "https://res.cloudinary.com/dcpwwcueu/image/upload/v1663294890/Spells/Amplify_tyuwtz.jpg",
-        requirements: "Wand, Elf Magic, Paladin Magic or Druid Magic Point to either your ears or voice box",
+        requirements: "Wand, Elf Magic, Paladin Magic or Druid Magic ",
         incantation: "Amplifico"
     }, 
     {
@@ -49,7 +49,7 @@ Spell.create([
     },
     {
         name: "Torture",
-        short_description: "Causes immense pain                             ",
+        short_description: "Causes immense pain to whomever or whatever you curse                                                        ",
         image: "https://res.cloudinary.com/dcpwwcueu/image/upload/v1663295916/Spells/shutterstock_2030272709_ooartc.jpg",
         requirements: "You must be at least 75 years old for this spell and have to be a Witch, Wizard or Cerridwen. NO ORCS!!!!",
         incantation: "Cruciatus"
