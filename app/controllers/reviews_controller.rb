@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
   skip_before_action :authenticate_user
-  before_action :is_owner?, only: [:update, :destroy]
+  before_action :is_owner?, only: [:create, :update, :destroy]
 
   # GET /reviews
   def index
@@ -20,18 +20,19 @@ class ReviewsController < ApplicationController
     render json: @review, include: [:user], status: :created
   end
 
-  # def add_review_to_spell
-  #   @spell = Spell.find_by_id(params[:spell_id])
-  #   @review = @spell.reviews.build(params)
-  #   @review.save
-  #   render json: @review
-  # end
+  #POST /spells/:spell_id/reviews ???
+  def add_review_to_spell
+    @spell = Spell.find_by_id(params[:spell_id])
+    @review = @spell.reviews.build(params)
+    @review.save
+    render json: @review
+  end
 
   # PATCH/PUT /reviews/1
   def update
     @review = Review.find(params[:id])
     @review.update!(review_params)
-    render json: @review,  status: :ok
+    render json: @review,  status: :accepted
   end
 
   # DELETE /reviews/1
