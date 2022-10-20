@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
   resources :reviews, only: [:index, :show, :create, :update, :destroy]
-  resources :spells, only: [:index, :show] 
+  # resources :spells, only: [:index, :show] 
   resources :users, only: [:index, :show, :create] #create is sign up
 
-  
+  resources :spells, only: [:index, :show]
+  #
+  #
   
   # Sessions custom routes
   post '/signup', to: 'users#create'
@@ -13,7 +15,7 @@ Rails.application.routes.draw do
 
   post '/login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
-  # post '/spells/:spell_id/reviews', 'reviews#'
+  # post '/spells/:spell_id/reviews', 'reviews#create' ?????
 end
 
 

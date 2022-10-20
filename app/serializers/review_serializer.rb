@@ -1,5 +1,5 @@
 class ReviewSerializer < ActiveModel::Serializer
-  attributes :username, :comment, :spell
+  attributes :id,:username, :comment, :spell
  
   has_one :spell
   def spell 

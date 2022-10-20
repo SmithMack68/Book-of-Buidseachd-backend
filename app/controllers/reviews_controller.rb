@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
   skip_before_action :authenticate_user
-  before_action :is_owner?, only: [:create, :update, :destroy]
+  # before_action :is_owner?, only: [:create, :update, :destroy]
 
   # GET /reviews
   def index
@@ -16,17 +16,16 @@ class ReviewsController < ApplicationController
 
   # POST /reviews
   def create
-    @review = Review.create!(review_params)
-    render json: @review, include: [:user], status: :created
+    user = User.find(session[:user_id])
+    if user
+      review = Review.create!(comment: params[:comment], username: params[:username], user_id: user.id,spell_id: params[:spell_id])
+      render json: review
+    else
+      render json: {error: "User Not Found"},status: 404
+    end
+  #  comment username user_id spell_id
   end
 
-  #POST /spells/:spell_id/reviews ???
-  def add_review_to_spell
-    @spell = Spell.find_by_id(params[:spell_id])
-    @review = @spell.reviews.build(params)
-    @review.save
-    render json: @review
-  end
 
   # PATCH/PUT /reviews/1
   def update
@@ -39,7 +38,7 @@ class ReviewsController < ApplicationController
   def destroy
     @review = Review.find(params[:id])
     @review.destroy
-    head :no_content
+    render json: @review
   end
 
   private
@@ -48,10 +47,10 @@ class ReviewsController < ApplicationController
       params.permit(:username, :comment, :spell_id, :user_id)
     end
 
-    def is_owner? 
-      permitted = @review.user_id == current_user.id 
-      render json: {errors:{User: "does not own this review"}}, status: :forbidden unless permitted
-    end
+    # def is_owner? 
+    #   permitted = @review.user_id == current_user.id 
+    #   render json: {errors:{User: "does not own this review"}}, status: :forbidden unless permitted
+    # end
 end
 
 
