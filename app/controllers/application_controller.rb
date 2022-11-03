@@ -13,19 +13,14 @@ class ApplicationController < ActionController::API
     private
 
     def current_user
-     @current_user ||= User.find_by_id(session[:user_id])#find or find_by_id
+     @current_user ||= User.find_by_id(session[:user_id]) #memoization
     end
 
-    def authenticate_user
+    def authenticate_user #checks to see if user is loggedin
         render json: { errors: {User: 'Please login'}}, status: :unauthorized unless current_user
     end
 
-    # def is_authorized? 
-    #     permitted = current_user.author? || @review.user_id = current_user.id
-    #     render json: {errors: {User: "did not write this review"}}, status: :forbidden unless permitted
-    # end
-
-
+    
     def render_unprocessable_entity(invalid)
         render json: { errors: invalid.record.errors }, status: :unprocessable_entity
     end
@@ -37,6 +32,15 @@ class ApplicationController < ActionController::API
 
 end
 
+
+
+
+
+
+# def is_authorized? 
+    #     permitted = current_user.author? || @review.user_id = current_user.id
+    #     render json: {errors: {User: "did not write this review"}}, status: :forbidden unless permitted
+    # end
 
 
 # JWT

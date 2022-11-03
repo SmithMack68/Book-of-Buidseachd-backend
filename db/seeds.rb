@@ -66,4 +66,4 @@ Spell.create([
 
 Review.create(username: "Kit", comment: "This spell singed my eyebrows, but it really works. Just be super careful!!", spell_id:1, user_id:1)
 Review.create(username: "Kit", comment: "Particularly helpful for calling little lost lambs home", spell_id:3, user_id:1)
-Review.create(username: "Bob", comment: "Definately DO NOT try this on living things! Scary, I have no words.", spell_id:1, user_id:2)
+Review.create(username: "Bob", comment: "Definitely DO NOT try this on living things! Scary, I have no words.", spell_id:1, user_id:2)

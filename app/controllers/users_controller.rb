@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   skip_before_action :authenticate_user, only: [:create]
-  # before_action :set_user, only: [:show]
+  
 
   # # GET /users
   def index
@@ -81,7 +81,7 @@ end
   #   end
   # end  
 
-  #def create ENOCH
+  #def create 
   #   @user = User.new(user_params)
   #   if @user.save
   #     login_user #creates a new session
