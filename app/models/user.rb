@@ -4,5 +4,5 @@ class User < ApplicationRecord
 
    
     has_many :reviews
-    has_many :spells, through: :reviews
+    has_many :spells, -> { distinct }, through: :reviews
 end
