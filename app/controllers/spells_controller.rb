@@ -11,7 +11,6 @@ class SpellsController < ApplicationController
 
   # GET /spells/1
   def show
-    # @spell = Spell.find(params[:id])
     render json: @spell, include: :reviews, status: :ok
   end
 

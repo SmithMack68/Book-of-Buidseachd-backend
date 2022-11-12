@@ -10,7 +10,6 @@ class ReviewsController < ApplicationController
 
   # GET /reviews/1
   def show
-    # @review = Review.find(params[:id])
     render json: @review,  status: :ok
   end
 
@@ -29,14 +28,12 @@ class ReviewsController < ApplicationController
 
   # PATCH/PUT /reviews/1
   def update
-    # @review = Review.find(params[:id])
     @review.update!(review_params)
     render json: @review,  status: :accepted
   end
 
   # DELETE /reviews/1
   def destroy
-    # @review = Review.find(params[:id])
     @review.destroy
     render json: @review
   end
@@ -58,7 +55,4 @@ class ReviewsController < ApplicationController
 end
 
 
-# def is_authorized? 
-    #     permitted = current_user.author? || @review.user_id = current_user.id
-    #     render json: {errors: {User: "did not write this review"}}, status: :forbidden unless permitted
-    # end
+

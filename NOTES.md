@@ -7,4 +7,3 @@ Overview:
 
 User will have many reviews
 User will have many spells through reviews
-User will have many spells(trips)
