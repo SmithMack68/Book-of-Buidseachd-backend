@@ -28,6 +28,10 @@ The Book of Buidseachd (pronounced vootsch-och)
 * Run rails server in console
 * Follow directions for installation of frontend [https://github.com/SmithMack68/frontend]
 
+## Images
+* All the images used are from Shutterstock
+* Images are uploaded with Cloudinary
+
 
 ## Licensing (MIT, optional)
 
