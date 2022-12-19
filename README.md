@@ -2,30 +2,39 @@
 
 The Book of Buidseachd (pronounced vootsch-och)
     This project is a digital spellbook. Buidseachd is the Scottish gaelic word for witchcraft.
-    The idea is you can use pre made spells, review them and then create your own spells.
+    The idea is you can look through pre-made spells, review them and then create your own spells.
     It is your own personal grimoire.
 
 ## Requirements
 
-* ruby v2.7.4
-* rails v7.0.3
-* react-router-dom v6.3.0
+* ruby "2.7.4"
+* gem "rails", "~> 7.0.3", ">= 7.0.3.1"
+* Use postgresql as Database for Active Record gem "pg", "~> 1.1"
 
 
 ## System Dependencies
 
-* gem cloudinary
+* gem 'cloudinary'
 * gem material-ui
-* gem bcrypt
-* gem rack-cors
-* gem pry
-* gem active-model-serializers
+* gem 'rack-cors'
+* gem 'pry'
+* gem 'active_model_serializers', '~> 0.10.2'
+* gem "bcrypt", "~> 3.1.7"
+* gem "puma", "~> 5.0"
+* gem 'dotenv-rails'
 
 ## Installation
 
-* Fork and clone
+* Fork and clone this repo
 * Bundle and Install necessary gems
-* Run rails server in console
+* Then make sure Postgres gem 'pg', '~> 1.1' is running (cute little elephant top of your screen)
+* Check ruby -v and rails -v to make sure they are running
+* Run the following commands
+    1. rails db:create
+    2. rails db:migrate
+    3. rails db:seed
+    4. rails server or rails s
+* By default, the server will run on port http://localhost:3001 (the frontend will run on port 3000)
 * Follow directions for installation of frontend [https://github.com/SmithMack68/frontend]
 
 ## Images
