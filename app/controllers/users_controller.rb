@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  skip_before_action :authenticate_user, only: [:create]
+  skip_before_action :authenticate_user
+  # skip_before_action :authenticate_user, only: [:create]
   
 
   # # GET /users
@@ -9,6 +10,15 @@ class UsersController < ApplicationController
   end
 
   # GET /users/1
+  # def show
+  #   # @user = User.find_by(id: session[:user_id])
+  #   if current_user
+  #     render json: current_user, status: :ok
+  #   else
+  #     render json: { error: "Not authorized" }, status: :unauthorized
+  #   end
+  # end
+
   def show
     @user = User.find_by(id: session[:user_id])
     if @user
@@ -21,11 +31,20 @@ class UsersController < ApplicationController
   # POST /users
   def create 
     @user = User.create!(user_params)
-    session[:user_id] = @user_id # login_user from appCont #creates a new session session[:user_id] = @user_id
+    session[:user_id] = @user.id # login_user from appCont #creates a new session session[:user_id] = @user_id
     render json: @user, status: :created
   end
 
- 
+  # def create
+  #   @user = User.create(user_params)
+  #     if @user.valid?
+  #       session[:user_id] = @user.id
+  #       render json: @user, status: :created
+  #     else
+  #       render json: { error: @user.errors }, status: :unprocessable_entity
+  #     end
+  # end
+
   #PATCH/PUT /users/1
   def update
     if @user.update(user_params)

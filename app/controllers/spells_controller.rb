@@ -9,10 +9,11 @@ class SpellsController < ApplicationController
     render json: @spells
   end
 
-  # GET /spells/1
+  # GET /spells/:id
   def show
     render json: @spell, include: :reviews, status: :ok
   end
+
 
   # POST /spells
   def create
@@ -25,14 +26,15 @@ class SpellsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /spells/1
+
+  # PATCH/PUT /spells/:id
   def update
     # @spell = Spell.find(params[:id])
     @spell.update!(spell_params)
     render json: @spell, status: :accepted
   end
 
-  # DELETE /spells/1
+  # DELETE /spells/:id
   def destroy
     # @spell = Spell.find(params[:id])
     @spell.destroy
@@ -50,6 +52,17 @@ class SpellsController < ApplicationController
 
     def authorize_user
       permitted = current_user.id == @spell.user_id
+      # permitted = @spell.user_id == current_user.id
       render json: {errors:{User: "did not write this spell"}}, status: :forbidden unless permitted
     end
 end
+
+
+
+
+ # # # GET /spells/:
+  # def spells_search
+  #   spell = Spell.find(params[:spell_id])
+  #   spells = spell.reviews.select {|review| review.comment.downcase.split(' ').include?(params[:searchterm])}
+  #   render json: spells
+  # end
