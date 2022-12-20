@@ -30,10 +30,11 @@ The Book of Buidseachd (pronounced vootsch-och)
 * Then make sure Postgres gem 'pg', '~> 1.1' is running (cute little elephant top of your screen)
 * Check ruby -v and rails -v to make sure they are running
 * Run the following commands
-    1. rails db:create
-    2. rails db:migrate
-    3. rails db:seed
-    4. rails server or rails s
+    1. bundle install
+    2. rails db:create
+    3. rails db:migrate
+    4. rails db:seed
+    5. rails server or rails s
 * By default, the server will run on port http://localhost:3001 (the frontend will run on port 3000)
 * Follow directions for installation of frontend [https://github.com/SmithMack68/frontend]
 
