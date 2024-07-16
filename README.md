@@ -1,9 +1,10 @@
 # The Book of Buidseachd
+![Book of Buidseachd](https://github.com/user-attachments/assets/401b4621-9a7e-4b04-9384-0335b1ecf474)
 
-The Book of Buidseachd (pronounced vootsch-och)
-    This project is a digital spellbook. Buidseachd is the Scottish gaelic word for witchcraft.
-    The idea is you can look through pre-made spells, review them and then create your own spells.
-    It is your own personal grimoire.
+The Book of Buidseachd (pronounced vootsch-och, the Scottish word for witchcraft)
+    is inspired by a famous wizard we all know. This project is your personal grimoire or digital book of spells. You can create, edit, or delete your own spells, as well as share and review spells created by others.
+-------
+-------
 
 ## Requirements
 
